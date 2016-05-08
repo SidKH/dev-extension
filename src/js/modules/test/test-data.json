@@ -1,5 +1,7 @@
 [
   {"title": "Users", "url": "http://jsonplaceholder.typicode.com/users"},
   {"title": "Posts", "url": "http://jsonplaceholder.typicode.com/posts"},
-  {"title": "Comments", "url": "http://jsonplaceholder.typicode.com/comments"}
+  {"title": "Comments", "url": "http://jsonplaceholder.typicode.com/comments"},
+  {"title": "Photos", "url": "http://jsonplaceholder.typicode.com/photos"},
+  {"title": "Todos", "url": "http://jsonplaceholder.typicode.com/todos"}
 ]
