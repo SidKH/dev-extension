@@ -1,0 +1,26 @@
+#select {
+  height: 41px;
+  background: #fff;
+  width: 100%;
+}
+
+.jpl-content {
+  height: calc(100vh - 80px);
+  overflow: scroll;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  .list-group-item {
+    border: none;
+    border-top: 1px solid #ddd;
+    &:first-child {
+      border: none;
+    }
+  }
+}
+
+.fetch {
+  transition: color 0.6s;
+  .loading & {
+    color: #FF977F;
+  }
+}
