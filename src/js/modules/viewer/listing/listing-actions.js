@@ -5,9 +5,10 @@ export function setEntries(entries) {
   }
 }
 
-export function sortEntries(field) {
+export function sortEntries(sortField, sortType) {
   return {
     type: 'SORT_ENTRIES',
-    field
+    sortField,
+    sortType
   }
 }

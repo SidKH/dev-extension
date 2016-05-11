@@ -21,7 +21,7 @@ let ListItem = ({item, n}) => {
   );
 }
 
-let Listing = ({entries, dispatch}) => {
+let Listing = ({entries, sortState, sort}) => {
   var listItems = entries.map(function (el, i) {
     return <ListItem item={el} key={i} n={i} />
   });
@@ -29,10 +29,10 @@ let Listing = ({entries, dispatch}) => {
     <table className="viwer-list">
       <thead>
         <tr>
-          <th onClick={() => dispatch(listingActions.sortEntries('path'))} className="path">Path</th>
-          <th className="status">Status</th>
-          <th className="type">Type</th>
-          <th className="syze">Size</th>
+          <th className="path" onClick={() => sort('path')}>Path</th>
+          <th className="status" onClick={() => sort('status')}>Status</th>
+          <th className="type" onClick={() => sort('type')}>Type</th>
+          <th className="size" onClick={() => sort('size')}>Size</th>
         </tr>
       </thead>
       <tbody>
@@ -45,8 +45,16 @@ let Listing = ({entries, dispatch}) => {
 Listing = connect(
   (store) => {
     return {
-      entries: store.listing
+      sort: store.listing.sort,
+      entries: store.listing.data
     };
+  },
+  (dispatch) => {
+    return {
+      sort: function (field, type) {
+        dispatch(listingActions.sortEntries(field, type));
+      }
+    }
   }
 )(Listing)
 
