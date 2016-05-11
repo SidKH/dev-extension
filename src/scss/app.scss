@@ -27,7 +27,7 @@ $media-expressions: (
 @import 'base/typography';
 @import 'base/forms';
 
-@import 'components/starter-box';
+@import 'components/viewer';
 
 #wrapper {
   max-width: 1000px;
@@ -36,5 +36,9 @@ $media-expressions: (
 }
 
 body {
+  color: rgb(48, 57, 66);
+  font-size: 11px;
+  line-height: 14px;
+  color: #262B2F;
   overflow: hidden;
 }

@@ -1,5 +1,5 @@
 {
-  "tags": [
+  "categories": [
     {"title": "Foo", "slug": "foo"},
     {"title": "Bar", "slug": "bar"},
     {"title": "Baz", "slug": "baz"}
@@ -14,9 +14,7 @@
         "from": "1462887783",
         "to": "1462887783"
       },
-      "tags": [
-        {"title": "Foo", "slug": "foo"}
-      ],
+      "category": {"title": "Foo", "slug": "foo"},
       "description": "http://my-api.com/123"
     },
     {
@@ -28,10 +26,7 @@
         "from": "1462887783",
         "to": "1462887783"
       },
-      "tags": [
-        {"title": "Bar", "slug": "bar"},
-        {"title": "Baz", "slug": "baz"}
-      ],
+      "category": {"title": "Bar", "slug": "bar"},
       "description": "http://my-api.com/356"
     }
   ]
