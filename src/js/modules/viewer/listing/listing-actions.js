@@ -24,3 +24,13 @@ export function filterEntries(filterType) {
     dispatch(setEntries());
   }
 }
+
+export function filterText(txt) {
+  return function (dispatch) {
+    dispatch({
+      type: 'FILTERING_ENTRIES_TEXT',
+      txt
+    });
+    dispatch(setEntries());
+  }
+}

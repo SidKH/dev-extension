@@ -1,6 +1,10 @@
+import HP from '../../../helpers.js';
+import Data from './data.json';
+
 var reqs = {
   sort: {},
   filter: 'all',
+  filterText: '',
   categories: [
     {"title": "Foo", "slug": "foo"},
     {"title": "Bar", "slug": "bar"},
@@ -10,97 +14,10 @@ var reqs = {
   viewData: []
 }
 
-var data = [
-  {
-    "path": "http://google.com",
-    "status": 200,
-    "type": "Some type",
-    "size": 1323333,
-    "time": {
-      "from": "1462887783",
-      "to": "1462887783"
-    },
-    "category": {"title": "Foo", "slug": "foo"},
-    "description": "http://my-api.com/123"
-  },
-  {
-    "path": "http://facebook.com",
-    "status": 304,
-    "type": "Another type",
-    "size": "330000",
-    "time": {
-      "from": "1462887783",
-      "to": "1462887783"
-    },
-    "category": {"title": "Bar", "slug": "bar"},
-    "description": "http://my-api.com/356"
-  },
-  {
-    "path": "http://microsoft.com",
-    "status": 500,
-    "type": "Type",
-    "size": 20000000,
-    "time": {
-      "from": "1462887783",
-      "to": "1462887783"
-    },
-    "category": {"title": "Bar", "slug": "bar"},
-    "description": "http://my-api.com/34"
-  },
-  {
-    "path": "http://microsoft.com",
-    "status": 600,
-    "type": "Type",
-    "size": 123000,
-    "time": {
-      "from": "1462887783",
-      "to": "1462887783"
-    },
-    "category": {"title": "Bar", "slug": "bar"},
-    "description": "http://my-api.com/34"
-  },
-  {
-    "path": "http://microsoft.com",
-    "status": 600,
-    "type": "Type",
-    "size": 123000,
-    "time": {
-      "from": "1462887783",
-      "to": "1462887783"
-    },
-    "category": {"title": "Baz", "slug": "baz"},
-    "description": "http://my-api.com/34"
-  },
-  {
-    "path": "http://microsoft.com",
-    "status": 600,
-    "type": "Type",
-    "size": 123000,
-    "time": {
-      "from": "1462887783",
-      "to": "1462887783"
-    },
-    "category": {"title": "Baz", "slug": "baz"},
-    "description": "http://my-api.com/34"
-  },
-  {
-    "path": "http://microsoft.com",
-    "status": 600,
-    "type": "Type",
-    "size": 123000,
-    "time": {
-      "from": "1462887783",
-      "to": "1462887783"
-    },
-    "category": {"title": "Foo", "slug": "foo"},
-    "description": "http://my-api.com/34"
-  }
-]
-
 function ListingReducer(state = reqs, action) {
   switch (action.type) {
     case 'SET_REQUEST_ENTRIES': {
-      return sorting(filtering(Object.assign(state, {data: data})));
+      return sorting(filterText(filtering(Object.assign(state, {data: Data}))));
     }
     case 'SORT_ENTRIES': {
       let sortType = action.sortType;
@@ -122,6 +39,11 @@ function ListingReducer(state = reqs, action) {
       if (action.filterType === state.filter) { return state; }
       return Object.assign(state, {
         filter: action.filterType
+      });
+    }
+    case 'FILTERING_ENTRIES_TEXT': {
+      return Object.assign(state, {
+        filterText: action.txt
       });
     }
     default:
@@ -147,6 +69,21 @@ function filtering(state) {
     }
   });
   return Object.assign(state, {viewData: viewData});
+}
+
+function filterText(state) {
+  let txt = state.filterText.trim();
+  if (!txt) { return state; }
+  let viewData = [];
+  state.viewData.forEach(function (el) {
+    HP.iterate(el, function (str) {
+      if (str.toString().indexOf(txt) !== -1) {
+        viewData.push(el);
+        return true;
+      }
+    });
+  });
+  return Object.assign(state, {viewData: viewData});;
 }
 
 export { ListingReducer }

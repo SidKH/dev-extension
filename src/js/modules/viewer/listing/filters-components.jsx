@@ -3,9 +3,22 @@ import { connect } from 'react-redux';
 import * as listingActions from './listing-actions.js';
 import classNames from 'classnames/bind';
 
-let FiltersInput = ({}) => {
-  return <input type="text" />
+let FiltersInput = ({filterText, setFilter}) => {
+  return <input type="text" value={filterText} onChange={(e) => setFilter(e.target.value)}/>
 }
+
+FiltersInput = connect(
+  (store) => {
+    return {
+      filterText: store.listing.filterText
+    }
+  },
+  (dispatch) => {
+    return {
+      setFilter: (str) => dispatch(listingActions.filterText(str))
+    }
+  }
+)(FiltersInput);
 
 let FilterItem = ({item, filter, setFilter}) => {
   let className = classNames({
