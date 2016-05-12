@@ -2,57 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as listingActions from './listing-actions.js';
 import classNames from 'classnames/bind';
+import { Filters } from './filters-components.jsx';
 import HP from '../../../helpers';
-
-let FilterItem = ({item, filter, setFilter}) => {
-  let className = classNames({
-    'filter': true,
-    'active': item.slug === filter
-  });
-  return <span className={className} onClick={() => setFilter(item.slug)}>{item.title}</span>;
-}
-
-FilterItem = connect(
-  (store) => {
-    return {
-      filter: store.listing.filter
-    }
-  },
-  (dispatch) => {
-    return {
-      setFilter: (filter) => dispatch(listingActions.filterEntries(filter))
-    }
-  }
-)(FilterItem);
-
-/**
- * Filters component
- * @param  {Array} options.categories - array of the categories
- * @param  {Function} options.setFilter  - dispatch set filter event
- */
-let Filters = ({categories}) => {
-  let catComponents = categories.map(function (el, i) {
-    return (
-      <FilterItem key={i} item={el} />
-    );
-  });
-  let allFilter = {slug: 'all', title: 'All'};
-  return (
-    <div className="filters-list">
-      <span className="title">Filters:</span>
-      <FilterItem key={-1} item={allFilter} />
-      {catComponents}
-    </div>
-  );
-}
-
-Filters = connect(
-  (store) => {
-    return {
-      categories: store.listing.categories
-    }
-  }
-)(Filters);
 
 /**
  * List item of the table (table row)
