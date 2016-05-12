@@ -1,17 +1,76 @@
+.filters-list {
+  background: #f3f3f3;
+  padding: 5px;
+  font-size: 13px;
+  span {
+    display: inline-block;
+  }
+  .title {
+    margin-right: 10px;
+  }
+  .filter {
+    margin-right: 5px;
+    border-radius: 10px;
+    padding: 4px 8px;
+    cursor: default;
+    &:hover {
+      background: #dedede;
+    }
+    &.active {
+      background: #ccc;
+    }
+  }
+}
 .viwer-list {
   width: 100%;
   text-align: left;
   th {
     border: 1px solid rgb(205, 205, 205);
-    padding: 0 4px;
+    padding: 5px 4px;
+    user-select: none;
+    cursor: pointer;
+    font-weight: normal;
+    position: relative;
+    &:hover {
+      background: hsla(0, 0%, 90%, 1);
+    }
+    &.sort-asc:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 8px 4px 0 4px;
+      border-color: #666 transparent transparent transparent;
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      margin-top: -5px;
+    }
+    &.sort-desc:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 4px 8px 4px;
+      border-color: transparent transparent #666 transparent;
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      margin-top: -5px;
+    }
   }
   td {
-    border: 1px solid #e1e1e1;
-    padding: 1px 4px;
+    border-left: 1px solid #e1e1e1;
+    padding: 5px 4px;
   }
   tr {
     &.odd {
       background: #f5f5f5;
+    }
+    td:first-child {
+      border-left: none;
     }
   }
   a {
