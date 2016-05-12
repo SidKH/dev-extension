@@ -1,8 +1,5 @@
 var reqs = {
-  sort: {
-    sortType: 'asc',
-    sortField: 'status'
-  },
+  sort: {},
   filter: 'all',
   categories: [
     {"title": "Foo", "slug": "foo"},
