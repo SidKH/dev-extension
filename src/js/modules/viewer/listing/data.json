@@ -1,352 +1,502 @@
 [
   {
-    "description": "http://my-api.com/400",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 5851241,
+    "category": {
+      "slug": "baz",
+      "title": "Baz"
+    },
+    "description": "http://my-api.com/13",
+    "size": 5473173,
+    "status": 502,
+    "path": "http://microsoft.com"
+  },
+  {
+    "category": {
+      "slug": "foo",
+      "title": "Foo"
+    },
+    "description": "http://my-api.com/103",
+    "size": 2748671,
     "status": 200,
     "path": "http://twitter.com"
   },
   {
-    "description": "http://my-api.com/325",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 301531,
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/322",
+    "size": 5412801,
+    "status": 503,
+    "path": "http://facebook.com"
+  },
+  {
+    "category": {
+      "slug": "foo",
+      "title": "Foo"
+    },
+    "description": "http://my-api.com/47",
+    "size": 541926,
     "status": 510,
-    "path": "http://twitter.com"
+    "path": "http://google.com"
   },
   {
-    "description": "http://my-api.com/282",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 4018955,
-    "status": 502,
-    "path": "http://twitter.com"
-  },
-  {
-    "description": "http://my-api.com/464",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 4739796,
+    "category": {
+      "slug": "baz",
+      "title": "Baz"
+    },
+    "description": "http://my-api.com/2",
+    "size": 2695373,
     "status": 500,
-    "path": "http://microsoft.com"
-  },
-  {
-    "description": "http://my-api.com/497",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 1481047,
-    "status": 200,
     "path": "http://google.com"
   },
   {
-    "description": "http://my-api.com/178",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 9538762,
-    "status": 510,
-    "path": "http://twitter.com"
-  },
-  {
-    "description": "http://my-api.com/53",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 6696877,
-    "status": 304,
-    "path": "http://twitter.com"
-  },
-  {
-    "description": "http://my-api.com/144",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 6952439,
-    "status": 510,
-    "path": "http://twitter.com"
-  },
-  {
-    "description": "http://my-api.com/305",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 5391399,
+    "category": {
+      "slug": "foo",
+      "title": "Foo"
+    },
+    "description": "http://my-api.com/454",
+    "size": 5555693,
     "status": 503,
     "path": "http://facebook.com"
   },
   {
-    "description": "http://my-api.com/421",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 8166617,
-    "status": 503,
-    "path": "http://microsoft.com"
-  },
-  {
-    "description": "http://my-api.com/39",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 5125212,
-    "status": 503,
-    "path": "http://google.com"
-  },
-  {
-    "description": "http://my-api.com/420",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 9893771,
-    "status": 502,
-    "path": "http://twitter.com"
-  },
-  {
-    "description": "http://my-api.com/0",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 3460447,
+    "category": {
+      "slug": "baz",
+      "title": "Baz"
+    },
+    "description": "http://my-api.com/376",
+    "size": 7486412,
     "status": 500,
-    "path": "http://twitter.com"
-  },
-  {
-    "description": "http://my-api.com/450",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 9241496,
-    "status": 503,
-    "path": "http://twitter.com"
-  },
-  {
-    "description": "http://my-api.com/356",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 9545744,
-    "status": 304,
     "path": "http://google.com"
   },
   {
-    "description": "http://my-api.com/94",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 6693719,
-    "status": 200,
-    "path": "http://microsoft.com"
-  },
-  {
-    "description": "http://my-api.com/229",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 9692215,
-    "status": 500,
-    "path": "http://facebook.com"
-  },
-  {
-    "description": "http://my-api.com/244",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 9945037,
-    "status": 502,
-    "path": "http://facebook.com"
-  },
-  {
-    "description": "http://my-api.com/486",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 8079112,
-    "status": 304,
-    "path": "http://microsoft.com"
-  },
-  {
-    "description": "http://my-api.com/297",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 7171076,
+    "category": {
+      "slug": "baz",
+      "title": "Baz"
+    },
+    "description": "http://my-api.com/346",
+    "size": 807144,
     "status": 510,
-    "path": "http://facebook.com"
-  },
-  {
-    "description": "http://my-api.com/390",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 9928727,
-    "status": 510,
-    "path": "http://twitter.com"
-  },
-  {
-    "description": "http://my-api.com/237",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 7669432,
-    "status": 503,
     "path": "http://google.com"
   },
   {
-    "description": "http://my-api.com/232",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 6919914,
-    "status": 304,
-    "path": "http://google.com"
-  },
-  {
-    "description": "http://my-api.com/15",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 1430212,
-    "status": 502,
-    "path": "http://facebook.com"
-  },
-  {
-    "description": "http://my-api.com/138",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 5355769,
-    "status": 500,
-    "path": "http://microsoft.com"
-  },
-  {
-    "description": "http://my-api.com/384",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 9432913,
-    "status": 502,
-    "path": "http://google.com"
-  },
-  {
-    "description": "http://my-api.com/72",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 1760863,
-    "status": 304,
-    "path": "http://microsoft.com"
-  },
-  {
-    "description": "http://my-api.com/485",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 8787834,
-    "status": 503,
-    "path": "http://facebook.com"
-  },
-  {
-    "description": "http://my-api.com/202",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 6875995,
+    "category": {
+      "slug": "foo",
+      "title": "Foo"
+    },
+    "description": "http://my-api.com/93",
+    "size": 5077677,
     "status": 200,
-    "path": "http://google.com"
+    "path": "http://facebook.com"
   },
   {
-    "description": "http://my-api.com/427",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 3456025,
+    "category": {
+      "slug": "baz",
+      "title": "Baz"
+    },
+    "description": "http://my-api.com/270",
+    "size": 3074440,
     "status": 304,
     "path": "http://microsoft.com"
   },
   {
-    "description": "http://my-api.com/342",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 8011152,
+    "category": {
+      "slug": "baz",
+      "title": "Baz"
+    },
+    "description": "http://my-api.com/159",
+    "size": 8668135,
     "status": 502,
-    "path": "http://facebook.com"
-  },
-  {
-    "description": "http://my-api.com/355",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 7439319,
-    "status": 503,
     "path": "http://microsoft.com"
   },
   {
-    "description": "http://my-api.com/317",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 9012506,
-    "status": 502,
-    "path": "http://facebook.com"
-  },
-  {
-    "description": "http://my-api.com/485",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 5439263,
-    "status": 200,
-    "path": "http://twitter.com"
-  },
-  {
-    "description": "http://my-api.com/175",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 7337755,
-    "status": 510,
-    "path": "http://twitter.com"
-  },
-  {
-    "description": "http://my-api.com/460",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 1285075,
-    "status": 503,
-    "path": "http://microsoft.com"
-  },
-  {
-    "description": "http://my-api.com/160",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 3656444,
-    "status": 502,
-    "path": "http://google.com"
-  },
-  {
+    "category": {
+      "slug": "baz",
+      "title": "Baz"
+    },
     "description": "http://my-api.com/133",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 1981889,
+    "size": 2153216,
+    "status": 304,
+    "path": "http://microsoft.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/382",
+    "size": 9170324,
+    "status": 200,
+    "path": "http://twitter.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/270",
+    "size": 7005699,
+    "status": 502,
+    "path": "http://facebook.com"
+  },
+  {
+    "category": {
+      "slug": "foo",
+      "title": "Foo"
+    },
+    "description": "http://my-api.com/283",
+    "size": 1788860,
+    "status": 503,
+    "path": "http://facebook.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/454",
+    "size": 1922737,
+    "status": 200,
+    "path": "http://facebook.com"
+  },
+  {
+    "category": {
+      "slug": "foo",
+      "title": "Foo"
+    },
+    "description": "http://my-api.com/62",
+    "size": 1866828,
+    "status": 510,
+    "path": "http://google.com"
+  },
+  {
+    "category": {
+      "slug": "foo",
+      "title": "Foo"
+    },
+    "description": "http://my-api.com/7",
+    "size": 1458748,
+    "status": 200,
+    "path": "http://facebook.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/125",
+    "size": 5660541,
+    "status": 200,
+    "path": "http://google.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/314",
+    "size": 8251232,
+    "status": 503,
+    "path": "http://google.com"
+  },
+  {
+    "category": {
+      "slug": "baz",
+      "title": "Baz"
+    },
+    "description": "http://my-api.com/392",
+    "size": 599990,
+    "status": 200,
+    "path": "http://twitter.com"
+  },
+  {
+    "category": {
+      "slug": "foo",
+      "title": "Foo"
+    },
+    "description": "http://my-api.com/176",
+    "size": 2231454,
+    "status": 500,
+    "path": "http://microsoft.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/114",
+    "size": 4106292,
+    "status": 304,
+    "path": "http://google.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/446",
+    "size": 4474390,
+    "status": 503,
+    "path": "http://microsoft.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/21",
+    "size": 2078663,
+    "status": 502,
+    "path": "http://facebook.com"
+  },
+  {
+    "category": {
+      "slug": "baz",
+      "title": "Baz"
+    },
+    "description": "http://my-api.com/323",
+    "size": 4169453,
+    "status": 304,
+    "path": "http://facebook.com"
+  },
+  {
+    "category": {
+      "slug": "foo",
+      "title": "Foo"
+    },
+    "description": "http://my-api.com/338",
+    "size": 373774,
+    "status": 500,
+    "path": "http://microsoft.com"
+  },
+  {
+    "category": {
+      "slug": "baz",
+      "title": "Baz"
+    },
+    "description": "http://my-api.com/316",
+    "size": 6391257,
+    "status": 500,
+    "path": "http://microsoft.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/326",
+    "size": 8014896,
+    "status": 502,
+    "path": "http://google.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/313",
+    "size": 7323278,
+    "status": 200,
+    "path": "http://microsoft.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/418",
+    "size": 4113808,
+    "status": 200,
+    "path": "http://twitter.com"
+  },
+  {
+    "category": {
+      "slug": "baz",
+      "title": "Baz"
+    },
+    "description": "http://my-api.com/386",
+    "size": 2258561,
+    "status": 502,
+    "path": "http://microsoft.com"
+  },
+  {
+    "category": {
+      "slug": "foo",
+      "title": "Foo"
+    },
+    "description": "http://my-api.com/137",
+    "size": 4876249,
     "status": 502,
     "path": "http://twitter.com"
   },
   {
-    "description": "http://my-api.com/377",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 6644705,
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/376",
+    "size": 9716849,
+    "status": 510,
+    "path": "http://twitter.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/302",
+    "size": 2238165,
+    "status": 500,
+    "path": "http://microsoft.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/263",
+    "size": 2063005,
+    "status": 500,
+    "path": "http://twitter.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/32",
+    "size": 3834227,
+    "status": 304,
+    "path": "http://microsoft.com"
+  },
+  {
+    "category": {
+      "slug": "baz",
+      "title": "Baz"
+    },
+    "description": "http://my-api.com/302",
+    "size": 4718422,
+    "status": 304,
+    "path": "http://google.com"
+  },
+  {
+    "category": {
+      "slug": "foo",
+      "title": "Foo"
+    },
+    "description": "http://my-api.com/267",
+    "size": 8634372,
+    "status": 200,
+    "path": "http://google.com"
+  },
+  {
+    "category": {
+      "slug": "baz",
+      "title": "Baz"
+    },
+    "description": "http://my-api.com/454",
+    "size": 980340,
+    "status": 200,
+    "path": "http://twitter.com"
+  },
+  {
+    "category": {
+      "slug": "foo",
+      "title": "Foo"
+    },
+    "description": "http://my-api.com/28",
+    "size": 4435589,
+    "status": 503,
+    "path": "http://twitter.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/466",
+    "size": 9718740,
     "status": 304,
     "path": "http://twitter.com"
   },
   {
-    "description": "http://my-api.com/183",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 7721530,
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/330",
+    "size": 5665144,
     "status": 200,
     "path": "http://facebook.com"
   },
   {
-    "description": "http://my-api.com/358",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 1519730,
-    "status": 503,
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/477",
+    "size": 5731562,
+    "status": 304,
+    "path": "http://twitter.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/92",
+    "size": 3169848,
+    "status": 502,
     "path": "http://facebook.com"
   },
   {
-    "description": "http://my-api.com/366",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 6053185,
+    "category": {
+      "slug": "foo",
+      "title": "Foo"
+    },
+    "description": "http://my-api.com/357",
+    "size": 8934420,
+    "status": 200,
+    "path": "http://twitter.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/407",
+    "size": 7881046,
+    "status": 500,
+    "path": "http://twitter.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/243",
+    "size": 6511061,
+    "status": 304,
+    "path": "http://facebook.com"
+  },
+  {
+    "category": {
+      "slug": "baz",
+      "title": "Baz"
+    },
+    "description": "http://my-api.com/21",
+    "size": 3805350,
+    "status": 200,
+    "path": "http://twitter.com"
+  },
+  {
+    "category": {
+      "slug": "bar",
+      "title": "Bar"
+    },
+    "description": "http://my-api.com/111",
+    "size": 5027264,
     "status": 304,
     "path": "http://microsoft.com"
-  },
-  {
-    "description": "http://my-api.com/20",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 1122721,
-    "status": 200,
-    "path": "http://microsoft.com"
-  },
-  {
-    "description": "http://my-api.com/226",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 9078099,
-    "status": 500,
-    "path": "http://facebook.com"
-  },
-  {
-    "description": "http://my-api.com/342",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 594289,
-    "status": 503,
-    "path": "http://microsoft.com"
-  },
-  {
-    "description": "http://my-api.com/381",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 6458648,
-    "status": 510,
-    "path": "http://microsoft.com"
-  },
-  {
-    "description": "http://my-api.com/110",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 8434998,
-    "status": 500,
-    "path": "http://google.com"
-  },
-  {
-    "description": "http://my-api.com/168",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 8324478,
-    "status": 500,
-    "path": "http://facebook.com"
-  },
-  {
-    "description": "http://my-api.com/455",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 3389155,
-    "status": 503,
-    "path": "http://facebook.com"
-  },
-  {
-    "description": "http://my-api.com/59",
-    "category": "{{random({\"title\": \"Foo\", \"slug\": \"foo\"}, {\"title\": \"Bar\", \"slug\": \"bar\"}, {\"title\": \"Baz\", \"slug\": \"baz\"})}}",
-    "size": 272138,
-    "status": 510,
-    "path": "http://google.com"
   }
 ]

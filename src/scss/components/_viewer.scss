@@ -1,8 +1,28 @@
-.filters-list {
+.filters {
   background: #f3f3f3;
   padding: 5px;
   font-size: 13px;
+  border-bottom: 1px solid rgb(205, 205, 205);
   span {
+    display: inline-block;
+  }
+  .requests-select {
+    float: right;
+    margin-top: 1px;
+  }
+  .text-filter {
+    height: 20px;
+    line-height: 20px;
+    border-radius: 3px;
+    border: 1px solid #999;
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 11px;
+    &:focus {
+      outline: none;
+    }
+  }
+  .filters-list {
     display: inline-block;
   }
   .title {
@@ -17,24 +37,33 @@
       background: #dedede;
     }
     &.active {
-      background: #ccc;
+      color: #fff;
+      background: #999;
     }
+  }
+}
+.listing-table {
+  height: calc(100vh - 30px);
+  position: relative;
+  padding-top: 25px;
+  margin-right: 14px;
+  .scroll-holder {
+    height: 100%;
+    overflow: scroll;
+    width: calc(100% + 14px);
   }
 }
 .viwer-list {
   width: 100%;
   text-align: left;
   th {
-    border: 1px solid rgb(205, 205, 205);
-    padding: 5px 4px;
-    user-select: none;
-    cursor: pointer;
+    border: none;
     font-weight: normal;
-    position: relative;
-    &:hover {
-      background: hsla(0, 0%, 90%, 1);
-    }
-    &.sort-asc:after {
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    padding: 0;
+    &.sort-asc span:after {
       content: '';
       display: block;
       width: 0;
@@ -43,11 +72,11 @@
       border-width: 8px 4px 0 4px;
       border-color: #666 transparent transparent transparent;
       position: absolute;
-      right: 6px;
+      right: 10px;
       top: 50%;
       margin-top: -5px;
     }
-    &.sort-desc:after {
+    &.sort-desc span:after {
       content: '';
       display: block;
       width: 0;
@@ -56,9 +85,28 @@
       border-width: 0 4px 8px 4px;
       border-color: transparent transparent #666 transparent;
       position: absolute;
-      right: 6px;
+      right: 10px;
       top: 50%;
       margin-top: -5px;
+    }
+    span {
+      user-select: none;
+      cursor: pointer;
+      position: absolute;
+      padding: 5px 4px;
+      top: 0;
+      font-size: 11px;
+      line-height: 14px;
+      width: 12.5%;
+      border-bottom: 1px solid rgb(205, 205, 205);
+      border-left: 1px solid rgb(205, 205, 205);
+    }
+    width: 12.5%;
+    &.path {
+      width: 50%;
+      span {
+        width: 50%;
+      }
     }
   }
   td {

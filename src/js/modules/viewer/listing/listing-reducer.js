@@ -1,10 +1,16 @@
 import HP from '../../../helpers.js';
 import Data from './data.json';
+import reqList from './requests-listing.json';
+
+// ToDo: Add total time to the select
+// ToDo: Add timeline
 
 var reqs = {
   sort: {},
   filter: 'all',
   filterText: '',
+  currentReq: false,
+  reqList: reqList,
   categories: [
     {"title": "Foo", "slug": "foo"},
     {"title": "Bar", "slug": "bar"},
@@ -16,8 +22,11 @@ var reqs = {
 
 function ListingReducer(state = reqs, action) {
   switch (action.type) {
+    case 'SET_NEW_REQUEST': {
+      return Object.assign(state, {currentReq: action.id});
+    }
     case 'SET_REQUEST_ENTRIES': {
-      return sorting(filterText(filtering(Object.assign(state, {data: Data}))));
+      return sorting(filterText(filtering(Object.assign(state, {data: action.data || [...state.data]}))));
     }
     case 'SORT_ENTRIES': {
       let sortType = action.sortType;
@@ -53,10 +62,28 @@ function ListingReducer(state = reqs, action) {
 
 function sorting(state) {
   if (!state.sort.sortField) { return state; }
-  let sortCondition = state.sort.sortType === 'asc' ? [1, 0] : [0, 1];
   let data = [...state.viewData];
   data.sort(function (a, b) {
-    return a[state.sort.sortField] > b[state.sort.sortField] ? sortCondition[0] : sortCondition[1];
+    a = a[state.sort.sortField];
+    b = b[state.sort.sortField];
+    if (typeof a === 'object') {
+      a = a.title;
+      b = b.title;
+    }
+    if (state.sort.sortType === 'asc') {
+      if (typeof a === 'string') {
+        return (a > b) - (a < b)
+      } else if (typeof a === 'number') {
+        return a - b;
+      }
+    } else {
+      if (typeof a === 'string') {
+        return (a < b) - (a > b);
+      } else if (typeof a === 'number') {
+        return b - a;
+      }
+      return b - a;
+    }
   });
   return Object.assign(state, {viewData: data});
 }
@@ -83,7 +110,7 @@ function filterText(state) {
       }
     });
   });
-  return Object.assign(state, {viewData: viewData});;
+  return Object.assign(state, {viewData: viewData});
 }
 
 export { ListingReducer }

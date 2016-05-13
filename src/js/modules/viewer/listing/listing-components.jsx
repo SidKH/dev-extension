@@ -4,6 +4,8 @@ import * as listingActions from './listing-actions.js';
 import classNames from 'classnames/bind';
 import { Filters } from './filters-components.jsx';
 import HP from '../../../helpers';
+import moment from 'moment';
+import 'moment-duration-format';
 
 /**
  * List item of the table (table row)
@@ -24,17 +26,25 @@ let ListItem = ({item, n}) => {
       <td><a href={`https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#${item.status}`} target="_blank">{item.status}</a></td>
       <td>{item.category.title}</td>
       <td>{HP.formatBytes(item.size)}</td>
+      <td>{moment.duration(item.time).format('h[h] mm[m] ss[s]')}</td>
     </tr>
   );
 }
 
+/**
+ * TH cell of the table component
+ * @param  {String} options.slug      slug of the column
+ * @param  {String} options.text      title of the cell
+ * @param  {Object} options.sortState current sorting state
+ * @param  {Function} options.sort    sort option from reducer
+ */
 let HeadCell = ({slug, text, sortState, sort}) => {
   let className = classNames({
     [slug]: true,
     'sort-asc': sortState.sortField === slug && sortState.sortType === 'asc',
     'sort-desc': sortState.sortField === slug && sortState.sortType === 'desc'
   });
-  return <th className={className} onClick={() => sort(slug)}>{text}</th>
+  return <th className={className} onClick={() => sort(slug)}>{text}<span>{text}</span></th>
 }
 
 HeadCell = connect(
@@ -52,7 +62,12 @@ HeadCell = connect(
   }
 )(HeadCell);
 
-let Table = ({entries, sortState, dispatch}) => {
+/**
+ * Listing table component
+ * @param  {Array} options.entries   request entries from the store
+ * @param  {Object} options.sortState current sorting state
+ */
+let Table = ({entries, sortState}) => {
   var listItems = entries.map(function (el, i) {
     return <ListItem item={el} key={i} n={i} />
   });
@@ -62,8 +77,9 @@ let Table = ({entries, sortState, dispatch}) => {
         <tr>
           <HeadCell text="Path" slug="path" />
           <HeadCell text="Status" slug="status" />
-          <HeadCell text="Type" slug="type" />
+          <HeadCell text="Type" slug="category" />
           <HeadCell text="Size" slug="size" />
+          <HeadCell text="Time" slug="time" />
         </tr>
       </thead>
       <tbody>
@@ -87,11 +103,18 @@ Table = connect(
   }
 )(Table)
 
+/**
+ * Listing container component
+ */
 const Listing = () => {
   return (
     <div id="listing">
       <Filters />
-      <Table />
+      <div className="listing-table">
+        <div className="scroll-holder">
+          <Table />
+        </div>
+      </div>
     </div>
   );
 }

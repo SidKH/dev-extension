@@ -29,6 +29,10 @@ $media-expressions: (
 
 @import 'components/viewer';
 
+* {
+  box-sizing: border-box;
+}
+
 #wrapper {
   max-width: 1000px;
   margin: 0 auto;
