@@ -12,7 +12,7 @@ import 'moment-duration-format';
  * @param  {Object} options.item - item state object
  * @param  {Index} options.n    - item index in items array
  */
-let ListItem = ({item, n}) => {
+let ListItem = ({item, headers, n}) => {
   let evently = n % 2;
   let className = classNames({
     'viwer-list-item': true,
@@ -20,13 +20,12 @@ let ListItem = ({item, n}) => {
     'odd': !evently
   });
   var nClass = item.n % 2 ? 'even': 'odd';
+  var tds = headers.map(function (el, i) {
+    return <td key={i}>{item[el.slug]}</td>
+  });
   return (
     <tr className={className}>
-      <td><a href={item.path} target="_blank">{item.path}</a></td>
-      <td><a href={`https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#${item.status}`} target="_blank">{item.status}</a></td>
-      <td>{item.category.title}</td>
-      <td>{HP.formatBytes(item.size)}</td>
-      <td>{moment.duration(item.time).format('h[h] mm[m] ss[s]')}</td>
+      {tds}
     </tr>
   );
 }
@@ -38,13 +37,16 @@ let ListItem = ({item, n}) => {
  * @param  {Object} options.sortState current sorting state
  * @param  {Function} options.sort    sort option from reducer
  */
-let HeadCell = ({slug, text, sortState, sort}) => {
+let HeadCell = ({slug, text, sortState, headers, sort}) => {
   let className = classNames({
     [slug]: true,
     'sort-asc': sortState.sortField === slug && sortState.sortType === 'asc',
     'sort-desc': sortState.sortField === slug && sortState.sortType === 'desc'
   });
-  return <th className={className} onClick={() => sort(slug)}>{text}<span>{text}</span></th>
+  let styles = {
+    width: 100 / headers.length + '%'
+  }
+  return <th style={styles} className={className} onClick={() => sort(slug)}>{text}<span style={styles}>{text}</span></th>
 }
 
 HeadCell = connect(
@@ -67,19 +69,18 @@ HeadCell = connect(
  * @param  {Array} options.entries   request entries from the store
  * @param  {Object} options.sortState current sorting state
  */
-let Table = ({entries, sortState}) => {
-  var listItems = entries.map(function (el, i) {
-    return <ListItem item={el} key={i} n={i} />
+let Table = ({entries}) => {
+  var headers = entries.headers.map(function (el, i) {
+    return <HeadCell key={i} headers={entries.headers} text={el.title} slug={el.slug} />
+  });
+  var listItems = entries.list.map(function (el, i) {
+    return <ListItem item={el} headers={entries.headers} key={i} n={i} />
   });
   return (
     <table className="viwer-list">
       <thead>
         <tr>
-          <HeadCell text="Path" slug="path" />
-          <HeadCell text="Status" slug="status" />
-          <HeadCell text="Type" slug="category" />
-          <HeadCell text="Size" slug="size" />
-          <HeadCell text="Time" slug="time" />
+          {headers}
         </tr>
       </thead>
       <tbody>
@@ -94,12 +95,6 @@ Table = connect(
     return {
       entries: store.listing.viewData
     };
-  },
-  (dispatch) => {
-    return {
-      dispatch: dispatch,
-      getData: dispatch(listingActions.setEntries())
-    }
   }
 )(Table)
 

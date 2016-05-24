@@ -74,7 +74,7 @@ FilterItem = connect(
   },
   (dispatch) => {
     return {
-      setFilter: (filter) => dispatch(listingActions.filterEntries(filter))
+      setFilter: (filter) => dispatch(listingActions.filterEntries(filter, true))
     }
   }
 )(FilterItem);
@@ -90,11 +90,9 @@ let FiltersList = ({categories}) => {
       <FilterItem key={i} item={el} />
     );
   });
-  let allFilter = {slug: 'all', title: 'All'};
   return (
     <div className="filters-list">
       <span className="title">Filters:</span>
-      <FilterItem key={-1} item={allFilter} />
       {catComponents}
     </div>
   );

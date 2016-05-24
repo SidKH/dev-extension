@@ -15,6 +15,8 @@ export function setEntriesRemote() {
       return obj.id === store.listing.currentReq;
     })[0].details;
     $.get(url).then(function (data) {
+      dispatch(filterEntries('foo'));
+      dispatch(setCategories(data));
       dispatch(setEntries(data));
     });
   }
@@ -24,6 +26,16 @@ export function setEntries(data) {
   return {
     type: 'SET_REQUEST_ENTRIES',
     data
+  }
+}
+
+export function setCategories(data) {
+  var categories = data.map(function (obj) {
+    return obj.category;
+  });
+  return {
+    type: 'SET_CATEGORIES',
+    categories
   }
 }
 
@@ -38,13 +50,13 @@ export function sortEntries(sortField, sortType) {
   }
 }
 
-export function filterEntries(filterType) {
+export function filterEntries(filterType, update) {
   return function (dispatch) {
     dispatch({
       type: 'FILTERING_ENTRIES',
       filterType
     });
-    dispatch(setEntries());
+    update && dispatch(setEntries())
   }
 }
 

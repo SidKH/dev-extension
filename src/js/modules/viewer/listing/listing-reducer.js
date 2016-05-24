@@ -7,26 +7,32 @@ import reqList from './requests-listing.json';
 
 var reqs = {
   sort: {},
-  filter: 'all',
+  headers: [],
+  filter: '',
   filterText: '',
   currentReq: false,
   reqList: reqList,
-  categories: [
-    {"title": "Foo", "slug": "foo"},
-    {"title": "Bar", "slug": "bar"},
-    {"title": "Baz", "slug": "baz"}
-  ],
+  categories: [],
   data: [],
-  viewData: []
+  viewData: {
+    headers: [],
+    list: []
+  }
 }
 
 function ListingReducer(state = reqs, action) {
+  console.log(action);
   switch (action.type) {
     case 'SET_NEW_REQUEST': {
       return Object.assign(state, {currentReq: action.id});
     }
     case 'SET_REQUEST_ENTRIES': {
       return sorting(filterText(filtering(Object.assign(state, {data: action.data || [...state.data]}))));
+    }
+    case 'SET_CATEGORIES': {
+      return Object.assign(state, {
+        categories: action.categories
+      });
     }
     case 'SORT_ENTRIES': {
       let sortType = action.sortType;
@@ -62,7 +68,7 @@ function ListingReducer(state = reqs, action) {
 
 function sorting(state) {
   if (!state.sort.sortField) { return state; }
-  let data = [...state.viewData];
+  let data = [...state.viewData.list];
   data.sort(function (a, b) {
     a = a[state.sort.sortField];
     b = b[state.sort.sortField];
@@ -85,14 +91,17 @@ function sorting(state) {
       return b - a;
     }
   });
-  return Object.assign(state, {viewData: data});
+  return Object.assign(state, {viewData: Object.assign(state.viewData, {list: data})});
 }
 
 function filtering(state) {
-  let viewData = [];
+  let viewData = {};
   state.data.forEach(function (el) {
-    if (state.filter === el.category.slug || state.filter === 'all') {
-      viewData.push(el);
+    if (state.filter === el.category.slug) {
+      viewData = {
+        list: [...el.data],
+        headers: [...el.headers]
+      }
     }
   });
   return Object.assign(state, {viewData: viewData});
@@ -102,7 +111,7 @@ function filterText(state) {
   let txt = state.filterText.trim();
   if (!txt) { return state; }
   let viewData = [];
-  state.viewData.forEach(function (el) {
+  state.viewData.list.forEach(function (el) {
     HP.iterate(el, function (str) {
       if (str.toString().indexOf(txt) !== -1) {
         viewData.push(el);
@@ -110,7 +119,7 @@ function filterText(state) {
       }
     });
   });
-  return Object.assign(state, {viewData: viewData});
+  return Object.assign(state, {viewData: Object.assign(state.viewData, {list: viewData})});
 }
 
 export { ListingReducer }
