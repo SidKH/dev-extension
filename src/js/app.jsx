@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import { Viewer } from './modules/viewer/viewer-component.jsx';
 import { ViewerReducer } from './modules/viewer/viewer-reducer';
 
-let store = createStore(
+window.store = createStore(
   ViewerReducer,
   applyMiddleware(thunk)
 );

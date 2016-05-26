@@ -125,3 +125,12 @@
     color: #262B2F;
   }
 }
+.timeline-cell {
+  position: relative;
+  height: 10px;
+  .time {
+    position: absolute;
+    height: 100%;
+    background: #03A9F4;
+  }
+}

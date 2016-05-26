@@ -21,13 +21,12 @@ var reqs = {
 }
 
 function ListingReducer(state = reqs, action) {
-  console.log(action);
   switch (action.type) {
     case 'SET_NEW_REQUEST': {
       return Object.assign(state, {currentReq: action.id});
     }
     case 'SET_REQUEST_ENTRIES': {
-      return sorting(filterText(filtering(Object.assign(state, {data: action.data || [...state.data]}))));
+      return middlewares(Object.assign(state, {data: action.data || [...state.data]}));
     }
     case 'SET_CATEGORIES': {
       return Object.assign(state, {
@@ -64,6 +63,31 @@ function ListingReducer(state = reqs, action) {
     default:
       return state;
   }
+}
+
+function middlewares(obj) {
+  return sorting(filterText(filtering(obj)));
+}
+
+function structure(state) {
+  if (state.viewData.list[0] && state.viewData.list[0].timeline) {
+    let min = Number.MAX_SAFE_INTEGER;
+    let max = 0;
+    let data = state.data.filter(function (el) {
+      return el.category.slug === state.filter;
+    })[0].data;
+    data.forEach(function (el) {
+      min = el.timeline.from < min ? el.timeline.from : min;
+      max = el.timeline.to > max ? el.timeline.to : max;
+    });
+    let list = [...state.viewData.list];
+    list.forEach(function (el) {
+      el.timeline.min = min;
+      el.timeline.max = max;
+    });
+    return Object.assign(state, {viewData: Object.assign(state.viewData, {list: list})});
+  }
+  return state;
 }
 
 function sorting(state) {

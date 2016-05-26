@@ -1,6 +1,6 @@
 [
   {
-    "details": "http://localhost:8080/entries.json",
+    "details": "http://localhost:3000/entries",
     "url": "http://google.com",
     "time": "Sun Apr 24 2011 13:52:55 GMT+0000 (UTC)",
     "type": "PUT",
