@@ -304,7 +304,7 @@
     ],
     "headers": [
       {
-        "type": "string",
+        "type": "link",
         "slug": "path",
         "title": "Path"
       },

@@ -7,6 +7,19 @@ import HP from '../../../helpers';
 import moment from 'moment';
 import 'moment-duration-format';
 
+let StringCell = ({str}) => {
+  return <td>{str}</td>;
+}
+
+let LinkCell = ({link}) => {
+  return <td><a href={link} target="_blank">{link}</a></td>
+}
+
+let StatusCell = ({status}) => {
+  var href = `https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#${status}`;
+  return <td><a href={href}>{status}</a></td>;
+}
+
 /**
  * List item of the table (table row)
  * @param  {Object} options.item - item state object
@@ -21,7 +34,21 @@ let ListItem = ({item, headers, n}) => {
   });
   var nClass = item.n % 2 ? 'even': 'odd';
   var tds = headers.map(function (el, i) {
-    return <td key={i}>{item[el.slug]}</td>
+    let cell;
+    switch (el.type) {
+      case 'link': {
+        cell = <LinkCell key={i} link={item[el.slug]}></LinkCell>
+        break;
+      }
+      case 'status': {
+        cell = <StatusCell key={i} status={item[el.slug]}></StatusCell>
+        break;
+      }
+      default: {
+        cell = <StringCell key={i} str={item[el.slug]}></StringCell>
+      }
+    }
+    return cell;
   });
   return (
     <tr className={className}>
