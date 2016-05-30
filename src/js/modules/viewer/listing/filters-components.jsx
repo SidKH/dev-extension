@@ -6,7 +6,7 @@ import moment from 'moment';
 
 let RequestSelect = ({reqList, currentReq, setRequest}) => {
   let options = reqList.map(function (el, i) {
-    return <option key={i} value={el.id}>{el.type} | {el.url} | {moment(el.time).calendar()}</option>
+    return <option key={i} value={el.id}>{el.type} | {el.url} | {moment(new Date(el.time)).calendar()}</option>
   });
   if (!currentReq) { setRequest(reqList[0].id) };
   return (

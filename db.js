@@ -21,6 +21,49 @@ var categories = [
   {title: "Bar", slug: "bar"},
   {title: "Baz", slug: "baz"}
 ];
+var infos = [
+  [{
+    type: 'keyval',
+    title: 'Headers',
+    data: [
+      {key: 'trololo', val: 'ololo'},
+      {key: 'trololo', val: 'ololo'},
+      {key: 'trololo', val: 'ololo'},
+      {key: 'trololo', val: 'ololo'}
+    ]
+  },
+  {
+    type: 'text',
+    title: 'Something',
+    data: [
+      {key: 'trololo', val: 'ololo'}
+    ]
+  }],
+  [{
+    type: 'keyval',
+    title: 'Headers',
+    data: [
+      {key: 'Something', val: 'another'},
+      {key: 'Lorem', val: 'Ipsum'},
+      {key: 'trololo', val: 'ololo'},
+      {key: 'trololo', val: 'ololo'}
+    ]
+  },
+  {
+    type: 'text',
+    title: 'Something',
+    data: [
+      {key: 'Lorem', val: 'ipsum'}
+    ]
+  },
+  {
+    type: 'text',
+    title: 'Something',
+    data: [
+      {key: 'Lorem', val: 'ipsum'}
+    ]
+  }]
+]
 
 module.exports = function () {
   return {
@@ -31,14 +74,14 @@ module.exports = function () {
         entries.push({
           category: categories[i],
           headers: [
-            {title: 'Path', slug: 'path', type: 'link'},
+            {title: 'Path', slug: 'path', type: 'info'},
             {title: 'Status', slug: 'status', type: 'status'},
-            {title: 'Size', slug: 'size', type: 'string'},
+            {title: 'Size', slug: 'size', type: 'size'},
             {title: 'Timeline', slug: 'timeline', type: 'timeline'}
           ],
           data: (function () {
             var data = [];
-            for (var i = 0; i < 200; i++) {
+            for (var i = 0; i < 50; i++) {
               data.push({
                 path: `http://${randomArr(paths)}`,
                 status: randomArr(statuses),
@@ -47,7 +90,8 @@ module.exports = function () {
                   from: random(200, 5000),
                   to: random(10000, 15000)
                 },
-                description: `http://my-api.com/${random(0, 500)}`
+                description: `http://my-api.com/${random(0, 500)}`,
+                info: randomArr(infos)
               });
             }
             return data;

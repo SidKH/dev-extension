@@ -1,3 +1,5 @@
+import { getData } from '../viewer-actions';
+
 export function setNewRequest(id) {
   return function (dispatch) {
     dispatch({
@@ -14,7 +16,7 @@ export function setEntriesRemote() {
     var url = store.listing.reqList.filter(function (obj) {
       return obj.id === store.listing.currentReq;
     })[0].details;
-    $.get(url).then(function (data) {
+    getData(url).then(function (data) {
       dispatch(filterEntries('foo'));
       dispatch(setCategories(data));
       dispatch(setEntries(data));
@@ -67,5 +69,12 @@ export function filterText(txt) {
       txt
     });
     dispatch(setEntries());
+  }
+}
+
+export function getInfo(index) {
+  return {
+    type: 'GET_INFO',
+    index
   }
 }

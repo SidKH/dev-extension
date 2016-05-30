@@ -1,0 +1,44 @@
+.info-box {
+  position: absolute;
+  right: 0;
+  top: 33px;
+  width: 50%;
+  height: calc(100vh - 33px);
+  background: #fff;
+  border-left: 1px solid #666;
+  z-index: 1000;
+  .tabs-nav {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin: 5px 0 0 25px;
+    li {
+      float: left;
+      padding: 2px 8px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-bottom: none;
+      &:hover {
+        background: #dadada;
+      }
+      &.active {
+        border-color: #a1a1a1;
+      }
+    }
+  }
+  .tab {
+    padding: 20px;
+    border-top: 1px solid #a1a1a1;
+  }
+  .key-val-content {
+    font-size: 16px;
+    .row {
+      border-bottom: 1px solid #c1c1c1;
+      padding: 2px 0;
+    }
+    strong {
+      margin-right: 5px;
+    }
+  }
+}

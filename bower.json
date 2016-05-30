@@ -23,6 +23,7 @@
     "jquery": "~2.2.0",
     "normalize-css": "~3.0.3",
     "include-media": "~1.4.2",
-    "bootstrap-sass": "^3.3.6"
+    "bootstrap-sass": "^3.3.6",
+    "SpinKit": "spinkit#^1.2.5"
   }
 }

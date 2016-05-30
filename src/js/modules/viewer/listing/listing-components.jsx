@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as listingActions from './listing-actions.js';
+import * as viewerActions from '../viewer-actions.js';
 import classNames from 'classnames/bind';
 import { Filters } from './filters-components.jsx';
 import HP from '../../../helpers';
@@ -22,7 +23,7 @@ let ListItem = ({item, headers, n}) => {
   });
   var nClass = item.n % 2 ? 'even': 'odd';
   var tds = headers.map(function (el, i) {
-    return getCell(el.type, i, item[el.slug]);
+    return getCell(el.type, i, item[el.slug], n);
   });
   return (
     <tr className={className}>

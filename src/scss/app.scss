@@ -28,6 +28,7 @@ $media-expressions: (
 @import 'base/forms';
 
 @import 'components/viewer';
+@import 'components/infobox';
 
 * {
   box-sizing: border-box;
@@ -37,6 +38,17 @@ $media-expressions: (
   max-width: 1000px;
   margin: 0 auto;
   padding-top: 20px;
+}
+
+.loader {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -20px 0 0 -20px;
+  .sk-cube:before {
+    background: #999;
+  }
 }
 
 body {

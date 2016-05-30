@@ -3,7 +3,6 @@ import Data from './data.json';
 import reqList from './requests-listing.json';
 
 // ToDo: Add total time to the select
-// ToDo: Add timeline
 
 var reqs = {
   sort: {},
@@ -59,6 +58,10 @@ function ListingReducer(state = reqs, action) {
       return Object.assign(state, {
         filterText: action.txt
       });
+    }
+    case 'GET_INFO': {
+      console.log(state.viewData.list[action.index]);
+      return state;
     }
     default:
       return state;
