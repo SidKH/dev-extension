@@ -1,4 +1,5 @@
-import { setInfoBoxContent } from './infobox/infobox-actions';
+import { setInfoBoxContent, unsetInfoBoxContent } from './infobox/infobox-actions';
+import { setInfoBoxView, unsetInfoBoxView } from './listing/listing-actions';
 
 export function getData (url) {
   window.store.dispatch(startLoader());
@@ -20,11 +21,13 @@ export function setInfoBox(index) {
     let state = getState();
     let item = state.listing.viewData.list[index];
     dispatch(setInfoBoxContent(item.info));
+    dispatch(setInfoBoxView(item.id));
   }
 }
 
 export function closeInfoBox() {
-  return {
-    type: 'CLOSE_INFO_BOX'
+  return function (dispatch) {
+    dispatch(unsetInfoBoxContent());
+    dispatch(unsetInfoBoxView());
   }
 }

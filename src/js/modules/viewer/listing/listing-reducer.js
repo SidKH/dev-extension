@@ -11,6 +11,7 @@ var reqs = {
   filterText: '',
   currentReq: false,
   reqList: reqList,
+  infoBoxView: false,
   categories: [],
   data: [],
   viewData: {
@@ -21,11 +22,29 @@ var reqs = {
 
 function ListingReducer(state = reqs, action) {
   switch (action.type) {
+    case 'INFOBOX_VIEW_ON': {
+      let data = state.data.map(function (category) {
+        return Object.assign({}, category, {data: category.data.map(function (item) {
+          item.active = (action.id === item.id);
+          return item;
+        })});
+      });
+      return Object.assign({}, state, {infoBoxView: true, data: data});
+    }
+    case 'INFOBOX_VIEW_OFF': {
+      let data = state.data.map(function (category) {
+        return Object.assign({}, category, {data: category.data.map(function (item) {
+          item.active = false;
+          return item;
+        })});
+      });
+      return Object.assign({}, state, {infoBoxView: false, data: data});
+    }
     case 'SET_NEW_REQUEST': {
-      return Object.assign(state, {currentReq: action.id});
+      return Object.assign({}, state, {currentReq: action.id});
     }
     case 'SET_REQUEST_ENTRIES': {
-      return middlewares(Object.assign(state, {data: action.data || [...state.data]}));
+      return middlewares(Object.assign({}, state, {data: action.data || [...state.data]}));
     }
     case 'SET_CATEGORIES': {
       return Object.assign(state, {
@@ -60,7 +79,6 @@ function ListingReducer(state = reqs, action) {
       });
     }
     case 'GET_INFO': {
-      console.log(state.viewData.list[action.index]);
       return state;
     }
     default:

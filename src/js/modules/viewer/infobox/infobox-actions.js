@@ -5,6 +5,12 @@ export function setInfoBoxContent(data) {
   }
 }
 
+export function unsetInfoBoxContent() {
+  return {
+    type: 'UNSET_INFOBOX_CONTENT'
+  }
+}
+
 export function setTab(index) {
   return {
     type: 'SET_TAB',

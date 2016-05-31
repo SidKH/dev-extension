@@ -55,7 +55,7 @@ let TimelineCell = ({item}) => {
 }
 
 let InfoCell = ({item, index, getInfo}) => {
-  return <td><span onClick={() => getInfo(index)}>{item}</span></td>
+  return <td className="info-cell"><span onClick={() => getInfo(index)}>{item}</span></td>
 }
 
 InfoCell = connect(

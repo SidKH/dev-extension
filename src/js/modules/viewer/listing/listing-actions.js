@@ -78,3 +78,22 @@ export function getInfo(index) {
     index
   }
 }
+
+export function setInfoBoxView(id) {
+  return function (dispatch) {
+    dispatch({
+      type: 'INFOBOX_VIEW_ON',
+      id
+    });
+    dispatch(setEntries());
+  }
+}
+
+export function unsetInfoBoxView() {
+  return function (dispatch) {
+    dispatch({
+      type: 'INFOBOX_VIEW_OFF'
+    });
+    dispatch(setEntries());
+  }
+}

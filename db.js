@@ -14,6 +14,15 @@ function randomSelection(arr) {
   if (!newArr.length) { newArr.push(arr[0]); }
 }
 
+function getId() {
+  var id = 0;
+  return function () {
+    return id++;
+  }
+}
+
+var entrieId = getId();
+
 var statuses = [200, 304, 500, 502, 503, 510];
 var paths = ['twitter.com', 'google.com', 'facebook.com', 'justcoded.com'];
 var categories = [
@@ -35,9 +44,7 @@ var infos = [
   {
     type: 'text',
     title: 'Something',
-    data: [
-      {key: 'trololo', val: 'ololo'}
-    ]
+    data: 'for (var i = 0; i < 10; i++) {console.log(123)}'
   }],
   [{
     type: 'keyval',
@@ -52,16 +59,12 @@ var infos = [
   {
     type: 'text',
     title: 'Something',
-    data: [
-      {key: 'Lorem', val: 'ipsum'}
-    ]
+    data: 'for (var i = 0; i < 10; i++) {}'
   },
   {
     type: 'text',
-    title: 'Something',
-    data: [
-      {key: 'Lorem', val: 'ipsum'}
-    ]
+    title: 'Something else',
+    data: 'for (var i = 0; i < 10; i++) {console.log(123)}'
   }]
 ]
 
@@ -83,6 +86,7 @@ module.exports = function () {
             var data = [];
             for (var i = 0; i < 50; i++) {
               data.push({
+                id: Math.random().toString(36).substring(7),
                 path: `http://${randomArr(paths)}`,
                 status: randomArr(statuses),
                 size: random(200, 10000000),

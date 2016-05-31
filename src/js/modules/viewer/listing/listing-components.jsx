@@ -19,7 +19,8 @@ let ListItem = ({item, headers, n}) => {
   let className = classNames({
     'viwer-list-item': true,
     'even': evently,
-    'odd': !evently
+    'odd': !evently,
+    'active': item.active
   });
   var nClass = item.n % 2 ? 'even': 'odd';
   var tds = headers.map(function (el, i) {
@@ -39,9 +40,10 @@ let ListItem = ({item, headers, n}) => {
  * @param  {Object} options.sortState current sorting state
  * @param  {Function} options.sort    sort option from reducer
  */
-let HeadCell = ({slug, text, sortState, headers, sort}) => {
+let HeadCell = ({slug, text, sortState, headers, sort, type}) => {
   let className = classNames({
     [slug]: true,
+    [type]: true,
     'sort-asc': sortState.sortField === slug && sortState.sortType === 'asc',
     'sort-desc': sortState.sortField === slug && sortState.sortType === 'desc'
   });
@@ -73,7 +75,7 @@ HeadCell = connect(
  */
 let Table = ({entries}) => {
   var headers = entries.headers.map(function (el, i) {
-    return <HeadCell key={i} headers={entries.headers} text={el.title} slug={el.slug} />
+    return <HeadCell key={i} headers={entries.headers} text={el.title} slug={el.slug} type={el.type} />
   });
   var listItems = entries.list.map(function (el, i) {
     return <ListItem item={el} headers={entries.headers} key={i} n={i} />
@@ -103,9 +105,10 @@ Table = connect(
 /**
  * Listing container component
  */
-const Listing = () => {
+let Listing = ({infoBoxView}) => {
+  let cls = infoBoxView ? 'info-box-view' : '';
   return (
-    <div id="listing">
+    <div id="listing" className={cls}>
       <Filters />
       <div className="listing-table">
         <div className="scroll-holder">
@@ -115,5 +118,13 @@ const Listing = () => {
     </div>
   );
 }
+
+Listing = connect(
+  (store) => {
+    return {
+      infoBoxView: store.listing.infoBoxView
+    }
+  }
+)(Listing);
 
 export { Listing }
