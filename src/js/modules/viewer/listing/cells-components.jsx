@@ -33,7 +33,7 @@ let LinkCell = ({item}) => {
  * @return {Object}               - React element
  */
 let StatusCell = ({item}) => {
-  var href = `https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#${status}`;
+  var href = `https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#${item}`;
   return <td><a href={href} target="_blank">{item}</a></td>;
 }
 

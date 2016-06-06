@@ -6,6 +6,10 @@ function randomArr(arr) {
   return arr[random(0, arr.length - 1)];
 }
 
+function randomDate(start, end) {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+}
+
 function randomSelection(arr) {
   var newArr = [];
   arr.forEach(function (el) {
@@ -70,6 +74,20 @@ var infos = [
 
 module.exports = function () {
   return {
+    requests: (function () {
+      var requests = [];
+      var i = 0;
+      for (i = 0; i < 20; i++) {
+        requests.push({
+          details: "http://localhost:8080/entries/",
+          url: 'http://' + randomArr(['microsoft.com', 'facebookc.com', 'google.com', 'justcoded.com']),
+          time: randomDate(new Date(2012, 0, 1), new Date()),
+          type: randomArr(['PUT', 'POST', 'GET', 'DELETE']),
+          id: Math.random().toString(36).substring(7)
+        });
+      }
+      return requests;
+    })(),
     entries: (function () {
       var entries = [];
       var i;

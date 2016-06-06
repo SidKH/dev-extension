@@ -40,6 +40,9 @@ function ListingReducer(state = reqs, action) {
       });
       return Object.assign({}, state, {infoBoxView: false, data: data});
     }
+    case 'SET_REQUESTS_LISTING': {
+      return Object.assign({}, state, {reqList: action.data});
+    }
     case 'SET_NEW_REQUEST': {
       return Object.assign({}, state, {currentReq: action.id});
     }

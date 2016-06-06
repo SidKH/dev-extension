@@ -6,8 +6,9 @@ export function setInfoBoxContent(data) {
 }
 
 export function unsetInfoBoxContent() {
-  return {
-    type: 'UNSET_INFOBOX_CONTENT'
+  return function (dispatch) {
+    dispatch({type: 'UNSET_INFOBOX_CONTENT'});
+    dispatch(setTab(0));
   }
 }
 

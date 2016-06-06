@@ -23,7 +23,8 @@ let KeyValPart = ({item}) => {
  * @return {Object}              - react element
  */
 let TextPart = ({item}) => {
-  return (<div className="pre-text" dangerouslySetInnerHTML={{__html: Highlight.highlightAuto(item).value}}></div>);
+  console.log(item);
+  return (<div className="pre-text"><pre>{item}</pre></div>);
 }
 
 let Parts = {

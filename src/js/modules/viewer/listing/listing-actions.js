@@ -10,6 +10,17 @@ export function setNewRequest(id) {
   }
 }
 
+export function setReqListRemote() {
+  return function (dispatch, getState) {
+    getData(url).then(function (data) {
+      dispatch({
+        type: 'SET_REQUESTS_LISTING',
+        data
+      });
+    });
+  }
+}
+
 export function setEntriesRemote() {
   return function (dispatch, getState) {
     let store = getState();
