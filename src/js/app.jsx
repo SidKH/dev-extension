@@ -12,6 +12,8 @@ import { ViewerReducer } from './modules/viewer/viewer-reducer';
  *  and starting new one
  */
 window.startApp = function (domain) {
+  
+  // Create store
   window.store = createStore(
     ViewerReducer,
     applyMiddleware(thunk)
@@ -22,7 +24,7 @@ window.startApp = function (domain) {
   
   // Render new one
   render(
-    <Provider store={store}>
+    <Provider store={window.store}>
       <Viewer />
     </Provider>,
     document.getElementById('root')

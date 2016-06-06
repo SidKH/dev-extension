@@ -4,6 +4,10 @@ import { Listing } from './listing/listing-components.jsx';
 import { InfoBox } from './infobox/infobox-components.jsx';
 import classNames from 'classnames/bind';
 
+/**
+ * Loader component
+ *  Just a simple spinner for the application loading state
+ */
 let Loader = () => (
   <div className="sk-folding-cube selected loader">
     <div className="sk-cube1 sk-cube"></div>
@@ -13,6 +17,10 @@ let Loader = () => (
   </div>
 );
 
+/**
+ * Main component for the viewer
+ *  it contains the listing, infobox and loader for the app
+ */
 let Viewer = ({hp}) => {
   let clss = classNames({
     'loading': hp.loading

@@ -4,6 +4,12 @@ import * as listingActions from './listing-actions.js';
 import * as viewerActions from '../viewer-actions.js';
 import HP from '../../../helpers';
 
+/**
+ * Size cell represent numer
+ *  as a file size (kb, mb, etc...)
+ * @param {Number} item - number that will be converted to size format
+ * @return {Object}     - React element
+ */
 let SizeCell = ({item}) => {
   return <td>{HP.formatBytes(item)}</td>
 }
@@ -54,6 +60,13 @@ let TimelineCell = ({item}) => {
   return <td><div className="timeline-cell"><span className="time" style={style}></span></div></td>
 }
 
+/**
+ * Info cell creates cell which will set infobox window
+ *  when we click on it
+ * @param {String} options.item       - String which will be setted into the cell
+ * @param {Number} options.index      - Index of the viewwable data component
+ * @param {Function} options.getInfo  - Function which dispatches setInfobox
+ */
 let InfoCell = ({item, index, getInfo}) => {
   return <td className="info-cell"><span onClick={() => getInfo(index)}>{item}</span></td>
 }
@@ -69,6 +82,11 @@ InfoCell = connect(
   }
 )(InfoCell);
 
+/**
+ * Cells object.
+ *  Any cell correspond to the specific key
+ *  which will be the type of the cell
+ */
 let Cells = {
   string: (i, item, index) => {
     return <StringCell key={i} item={item}></StringCell>;
@@ -90,6 +108,13 @@ let Cells = {
   }
 }
 
+/**
+ * Function for getting the cell based on its type
+ * @param {String} options.type     - type of the cell (you can see all types as keys in @Cells object)
+ * @param {Number} options.i        - index of the cell in the row (just for key property)
+ * @param {Object} options.item     - json object which will be representing as some data inside the cell
+ * @index {Number} options.index    - current index of the viewable data (serves to get the object from the data array)
+ */
 function getCell(type, i, item, index) {
   return Cells[type](i, item, index);
 }
