@@ -29,6 +29,8 @@ $media-expressions: (
 
 @import 'components/viewer';
 @import 'components/infobox';
+@import 'components/popup';
+@import 'components/options';
 
 * {
   box-sizing: border-box;

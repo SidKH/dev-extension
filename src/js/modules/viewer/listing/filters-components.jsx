@@ -4,17 +4,37 @@ import * as listingActions from './listing-actions.js';
 import classNames from 'classnames/bind';
 import moment from 'moment';
 
-let RequestSelect = ({reqList, currentReq, setRequest}) => {
-  let options = reqList.map(function (el, i) {
-    return <option key={i} value={el.id}>{el.type} | {el.url} | {moment(new Date(el.time)).calendar()}</option>
-  });
-  if (!currentReq) { setRequest(reqList[0].id) };
-  return (
-    <select className="requests-select" value={currentReq} onChange={(e) => setRequest(e.currentTarget.value)}>
-      {options}
-    </select>
-  );
-}
+/**
+ * Select component for selecting
+ *  requests list
+ * @param {Array} reqList - array of request in json format
+ * @param {Object} currentReq - object of the current selected request
+ * @param {Function} setRequest - function which dispatches set request event
+ * @returns {Object} - react element
+ */
+let RequestSelect = React.createClass({
+  componentWillMount: function () {
+    if (!this.props.reqList.length) {
+      this.props.setReqList();
+    }
+  },
+  componentWillReceiveProps: function (props) {
+    if (props.reqList.length && !props.currentReq) {
+      props.setRequest(props.reqList[0].id);
+    }
+  },
+  render: function() {
+    if (!this.props.reqList.length) { return false; }
+    let options = this.props.reqList.map(function (el, i) {
+      return <option key={i} value={el.id}>{el.type} | {el.url} | {moment(new Date(el.time)).calendar()}</option>
+    });
+    return (
+      <select className="requests-select" value={this.props.currentReq} onChange={(e) => this.props.setRequest(e.currentTarget.value)}>
+        {options}
+      </select>
+    );
+  }
+});
 
 RequestSelect = connect(
   (store) => {
@@ -25,7 +45,8 @@ RequestSelect = connect(
   },
   (dispatch) => {
     return {
-      setRequest: (id) => dispatch(listingActions.setNewRequest(id))
+      setRequest: (id) => dispatch(listingActions.setNewRequest(id)),
+      setReqList: () => dispatch(listingActions.setReqListRemote())
     }
   }
 )(RequestSelect);

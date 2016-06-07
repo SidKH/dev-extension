@@ -1,0 +1,13 @@
+.options-page {
+  .authorized {
+    display: none;
+  }
+  .success {
+    .authorize {
+      display: none;
+    }
+    .authorized {
+      display: block;
+    }
+  }
+}

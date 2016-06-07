@@ -10,7 +10,7 @@ var reqs = {
   filter: '',
   filterText: '',
   currentReq: false,
-  reqList: reqList,
+  reqList: [],
   infoBoxView: false,
   categories: [],
   data: [],

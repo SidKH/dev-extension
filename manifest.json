@@ -5,6 +5,8 @@
   "version": "1.0",
   "devtools_page": "devtools.html",
   "browser_action": {
-    "default_icon": "icon.png"
-  }
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html"
 }

@@ -56,6 +56,26 @@
       .pipe(gulp.dest(`./${Paths.build}/`));
   });
 
+  gulp.task('buildOptsJS', function () {
+    browserify({entries: `./${Paths.src}/${Paths.srcJS}/opts/opts.js`, debug: true})
+      .transform('babelify', {presets: ['es2015']})
+      .bundle().on('error', function (err) {
+        showError.apply(this, ['JS error', err])
+      })
+      .pipe(source('opts.js'))
+      .pipe(gulp.dest(`./${Paths.build}/`));
+  });
+
+  gulp.task('buildPopupJS', function () {
+    browserify({entries: `./${Paths.src}/${Paths.srcJS}/popup/popup.js`, debug: true})
+      .transform('babelify', {presets: ['es2015']})
+      .bundle().on('error', function (err) {
+        showError.apply(this, ['JS error', err])
+      })
+      .pipe(source('popup.js'))
+      .pipe(gulp.dest(`./${Paths.build}/`));
+  });
+
 
   /**
    * Build js vendor (concatenate vendor array)
@@ -121,6 +141,8 @@
   gulp.task('watch', function () {
     gulp.watch(`./${Paths.src}/${Paths.srcJS}/**/*`, ['buildCustomJS']);
     gulp.watch(`./${Paths.src}/${Paths.srcJS}/ext/**/*`, ['buildExtJS']);
+    gulp.watch(`./${Paths.src}/${Paths.srcJS}/popup/**/*`, ['buildPopupJS']);
+    gulp.watch(`./${Paths.src}/${Paths.srcJS}/opts/**/*`, ['buildOptsJS']);
     gulp.watch(`./${Paths.src}/vendor_entries/vendor.js`, ['buildJsVendors']);
     watch(`./${Paths.src}/${Paths.scss}/**/*`, function () {
       gulp.run('buildSass');
@@ -194,7 +216,7 @@
   }
 
   // Default Gulp Task
-  gulp.task('default', ['buildCustomJS', 'buildExtJS', 'buildSass', 'buildJsVendors', 'buildStylesVendors', 'copyFonts', 'imageMin', 'startLocalhost', 'watch']);
-  gulp.task('dev', ['buildCustomJS', 'buildExtJS', 'buildSass', 'buildJsVendors', 'buildStylesVendors', 'copyFonts', 'imageMin', 'watch']);
+  gulp.task('default', ['buildCustomJS', 'buildExtJS', 'buildPopupJS', 'buildOptsJS', 'buildSass', 'buildJsVendors', 'buildStylesVendors', 'copyFonts', 'imageMin', 'startLocalhost', 'watch']);
+  gulp.task('dev', ['buildCustomJS', 'buildExtJS', 'buildPopupJS', 'buildOptsJS', 'buildSass', 'buildJsVendors', 'buildStylesVendors', 'copyFonts', 'imageMin', 'watch']);
 
 }());

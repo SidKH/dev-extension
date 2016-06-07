@@ -12,7 +12,7 @@ export function setNewRequest(id) {
 
 export function setReqListRemote() {
   return function (dispatch, getState) {
-    getData(url).then(function (data) {
+    getData('http://localhost:3000/requests').then(function (data) {
       dispatch({
         type: 'SET_REQUESTS_LISTING',
         data

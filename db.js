@@ -79,7 +79,7 @@ module.exports = function () {
       var i = 0;
       for (i = 0; i < 20; i++) {
         requests.push({
-          details: "http://localhost:8080/entries/",
+          details: "http://localhost:3000/entries/",
           url: 'http://' + randomArr(['microsoft.com', 'facebookc.com', 'google.com', 'justcoded.com']),
           time: randomDate(new Date(2012, 0, 1), new Date()),
           type: randomArr(['PUT', 'POST', 'GET', 'DELETE']),
