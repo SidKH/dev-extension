@@ -97,8 +97,7 @@ module.exports = function () {
           headers: [
             {title: 'Path', slug: 'path', type: 'info'},
             {title: 'Status', slug: 'status', type: 'status'},
-            {title: 'Size', slug: 'size', type: 'size'},
-            {title: 'Timeline', slug: 'timeline', type: 'timeline'}
+            {title: 'Size', slug: 'size', type: 'size'}
           ],
           data: (function () {
             var data = [];
@@ -108,10 +107,6 @@ module.exports = function () {
                 path: `http://${randomArr(paths)}`,
                 status: randomArr(statuses),
                 size: random(200, 10000000),
-                timeline: {
-                  from: random(200, 5000),
-                  to: random(10000, 15000)
-                },
                 description: `http://my-api.com/${random(0, 500)}`,
                 info: randomArr(infos)
               });
